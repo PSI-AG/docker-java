@@ -32,3 +32,5 @@ RUN apt-get update && apt-get install ca-certificates curl \
 	update-alternatives --install "/usr/bin/javac" "javac" "${JAVA_HOME}/bin/javac" 1 && \
 	update-alternatives --set java "${JRE_HOME}/bin/java" && \
 	update-alternatives --set javac "${JAVA_HOME}/bin/javac"
+    
+CMD ["sh", "-c", "${JAVA_HOME}/bin/jjs"]
