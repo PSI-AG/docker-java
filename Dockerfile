@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM krallin/ubuntu-tini
 
 ENV VERSION 8
 ENV UPDATE 66
