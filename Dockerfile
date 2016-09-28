@@ -1,8 +1,8 @@
 FROM krallin/ubuntu-tini:14.04
 
 ENV VERSION 8
-ENV UPDATE 72
-ENV BUILD 15
+ENV UPDATE 102
+ENV BUILD 14
 
 ENV JAVA_HOME /usr/lib/jvm/java-${VERSION}-oracle
 ENV JRE_HOME ${JAVA_HOME}/jre
