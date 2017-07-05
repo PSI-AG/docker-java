@@ -1,8 +1,11 @@
 FROM krallin/ubuntu-tini:14.04
 
 ENV VERSION 8
-ENV UPDATE 102
-ENV BUILD 14
+ENV UPDATE 131
+ENV BUILD 11
+#Oracle introduced (around 1.8u131) a hash in the link to download java for some reason. 
+#It seems to be static for a version. Go to download site and check current one if you have problems.
+ENV HASH d54c1d3a095b4ff2b6607d096fa80163
 
 ENV JAVA_HOME /usr/lib/jvm/java-${VERSION}-oracle
 ENV JRE_HOME ${JAVA_HOME}/jre
@@ -12,7 +15,7 @@ RUN apt-get update && apt-get install ca-certificates curl \
         -y --no-install-recommends && \
 	curl --silent --location --retry 3 --cacert /etc/ssl/certs/GeoTrust_Global_CA.pem \
 	--header "Cookie: oraclelicense=accept-securebackup-cookie;" \
-	http://download.oracle.com/otn-pub/java/jdk/"${VERSION}"u"${UPDATE}"-b"${BUILD}"/jdk-"${VERSION}"u"${UPDATE}"-linux-x64.tar.gz \
+	http://download.oracle.com/otn-pub/java/jdk/"${VERSION}"u"${UPDATE}"-b"${BUILD}"/"${HASH}"/jdk-"${VERSION}"u"${UPDATE}"-linux-x64.tar.gz \
 	| tar xz -C /tmp && \
 	mkdir -p /usr/lib/jvm && mv /tmp/jdk1.${VERSION}.0_${UPDATE} "${JAVA_HOME}" && \
 	curl --silent --location --retry 3 --cacert /etc/ssl/certs/GlobalSign_Root_CA.pem \
