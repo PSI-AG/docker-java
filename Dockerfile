@@ -1,11 +1,11 @@
 FROM krallin/ubuntu-tini:14.04
 
 ENV VERSION 8
-ENV UPDATE 131
+ENV UPDATE 171
 ENV BUILD 11
 #Oracle introduced (around 1.8u131) a hash in the link to download java for some reason. 
 #It seems to be static for a version. Go to download site and check current one if you have problems.
-ENV HASH d54c1d3a095b4ff2b6607d096fa80163
+ENV HASH 512cd62ec5174c3487ac17c61aaa89e8
 
 ENV JAVA_HOME /usr/lib/jvm/java-${VERSION}-oracle
 ENV JRE_HOME ${JAVA_HOME}/jre
